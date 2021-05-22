@@ -1,0 +1,28 @@
+<div>
+<h1>Grocery Details</h1>
+
+<table>
+    <tr>
+        <td>Grocery Id</td>
+        <td>{{grocery.id}}</td>
+    </tr>
+    <tr>
+        <td>Grocery Name</td>
+        <td>{{grocery.name}}</td>
+    </tr>
+    <tr>
+        <td>Details</td>
+        <td>{{grocery.details}}</td>
+    </tr>
+    <tr>
+        <td>Grocery Price</td>
+        <td>{{grocery.price}}</td>
+    </tr>
+</table>
+<br>
+<img src="{{grocery.retrievedImage}}" height="200" width="200">
+<br><br>
+
+<a class="btn btn-small btn-danger" (click)="deleteGrocery()">delete</a>
+<a class="btn btn-small btn-warning" (click)="editGrocery()">edit</a>  
+</div>

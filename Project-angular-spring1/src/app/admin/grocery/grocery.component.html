@@ -1,0 +1,32 @@
+<body>
+  
+    <h1><p style="color:darkgreen ; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">FOOD ADMIN</p></h1>
+  </body>
+  <a class="btn btn-primary mb-3" style="font-family: cursive;" (click)="addGrocery()">Add New Items</a>
+  
+  <div class="container row">
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><h4>ID</h4></th>
+            <th><h4>Grocery Name</h4></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let grocery of grocery">
+            <td><h4>{{grocery.id}}</h4></td>
+            <td><h4>{{grocery.name}}</h4></td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="viewGrocery(grocery.id)">Show Details</button>       
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6"> 
+      <app-addgrocery *ngIf="action === 'edit' || action === 'add'" [grocery]="selectedGrocery" (groceryAddedEvent)="refreshData()"></app-addgrocery>
+    <app-viewgrocery *ngIf="action === 'view'" [grocery]="selectedGrocery"(groceryDeletedEvent)="refreshData()"></app-viewgrocery>
+  </div>
+  

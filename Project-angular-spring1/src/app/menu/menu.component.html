@@ -1,0 +1,24 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success">
+        <div><a href="http://localhost:4200/home" class="navbar-brand"><p style="color:wheat;font-family: Georgia, 'Times New Roman', Times, serif;">Food Cart</a></div>
+        <img src="https://assets1.risnews.com/styles/content_sm/s3/2018-04/shopping-cart.png?itok=LUk_XbaE" width="30" height="30" alt="">
+        <ul class="navbar-nav">
+            <li><a  class="nav-link" routerLink="/shop"  >Order Non veg</a></li>
+            <li><a  class="nav-link" routerLink="/shop2"  >Order veg</a></li>
+            <li><a  class="nav-link" routerLink="/login"  >Log out</a></li>
+            <li></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" *ngIf ="type==admin">
+                    <a routerLink="/admin/users" class="dropdown-item" >Users Control</a>
+                    <a routerLink="/admin/grocery" class="dropdown-item">add Non Veg</a>
+                    <a routerLink="/admin/veg" class="dropdown-item">add Veg</a>
+                    
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>

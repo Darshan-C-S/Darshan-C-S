@@ -1,0 +1,85 @@
+<div class="container row">
+    <div class="col-md-3">
+        <h2><p style="color: darkgoldenrod;font-family: Georgia, 'Times New Roman', Times, serif;">Food Cart </p> <p style= "color: red;font-family: Georgia, 'Times New Roman', Times, serif;">Non Veg</p></h2>
+        </div>
+    
+    <div class="col-md-10 custom-products-cart-container">
+        
+        <div class="offset-md-8">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    
+                    <a href="#" class="btn btn-info btn-lg" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="fa fa-cartr">
+                            Items Added In Cart:
+                        </span>
+                        <span class="caret">{{cartGrocery.length}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-cart" role="menu">
+                        <div class="alert alert-success" role="alert">
+                            Order Details
+                            </div>
+                        <li *ngFor="let item of cartGrocery">
+                            
+                            <div class="item product-cart-item row">
+                               
+                                <div class="col-md-8" *ngIf="item">{{item.name}}</div>
+                                <div class="col-md-4" *ngIf="item"><strong>{{item.price |  currency : 'INR'}}</strong></div>
+                            </div>
+                            
+                            
+                        </li>
+                        <hr>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping">Suggestion</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter your suggestion" aria-label="Name" aria-describedby="addon-wrapping">
+                          </div>
+                        
+                         <!-- <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping">Address</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter your Address" aria-label="Address" aria-describedby="addon-wrapping">
+                          </div>
+                          <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping">PhNo</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="Enter your phone No" aria-label="PhNo" aria-describedby="addon-wrapping">
+                          </div>-->
+                        <hr>
+                        <li><a class="btn btn-small btn-success" role="button" (click)="payGrocery()">Place The order</a></li>
+                        <br>
+                        <li *ngIf="cartGrocery.length > 0">
+                            <a class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Empty Cart</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<hr>
+<hr>
+<div class="container row">
+    <div class="col-md-4" *ngFor="let grocery of grocery;let i=index">
+        <div class="card card-block">
+            <img class="custom-image-style" img src="{{grocery.retrievedImage}}" height="200" width="200" style="margin-left: 60px;
+          margin-top: 10px">
+            <div class="grocery-desc-container row">
+                <div>
+                    <p style="margin-left: 60px"><strong>{{grocery.name}}: {{grocery.price | currency : 'INR' }} </strong></p>
+                    <p style="margin-left: 60px">{{grocery.details}}</p>
+                </div>
+                <div class="offset-md-4 col-md-4">
+                    <button class="btn btn-primary btn-sm" (click)="addToCart(grocery.id)"
+                    [disabled]="grocery.isAdded===true" >Add To Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
